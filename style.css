@@ -524,6 +524,16 @@ input{
  label:hover{
     color: #0ef;
 }
+@media (max-width: 768px) {
+    .top-content {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    label {
+        margin: 0 10px;
+    }
+}
 
 .photo-gallery{
     width:90%;
@@ -636,3 +646,116 @@ input{
     transition: 0s;
 }
 
+.pro1-content {
+  max-width: 1200px;
+  padding: 10px -50px;
+}
+
+.head-cont {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.img-cont {
+    flex: 1 1 auto;
+    display:flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items:center;
+}
+
+.img-cont img {
+  max-width: 75%;
+  max-height:75%;
+  height: auto;
+  width:auto;
+  display: block;
+}
+.img2-cont {
+    flex: 1 1 auto;
+    display:flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items:center;
+}
+.img2-cont img {
+  max-width: 100%;
+  max-height:100%;
+  height: 60%;
+  width:50%;
+  display: block;
+}
+
+.img3-cont {
+    flex: 1 1 auto;
+    display:flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items:center;
+}
+.img3-cont img {
+  max-width: 100%;
+  max-height:100%;
+  height: 60%;
+  width:50%;
+  display: block;
+}
+
+.txt-cont {
+  flex: 1 1 auto;
+  margin-bottom:10px;
+}
+.head-cont h1{
+  font-size:32px;
+}
+
+.txt-cont p{
+  font-size:15px;
+  margin:20px;
+  margin-bottom:-180px;
+}
+
+
+.content-container {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+}
+
+@media (max-width: 1800px) {
+  .content-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .img-cont,
+  .txt-cont {
+    margin-right: 0;
+  }
+}
+
+.comments {
+  display: flex;
+  justify-content: center; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+  text-align: center; /* Align text center */
+}
+
+.com-btn{
+    margin: 10px;
+    display: inline-flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50px;
+    padding: 20px 35px;
+    font-size: 17px;
+    color: #0ef;
+    text-decoration: none;
+
+}
+.com-btn:hover{
+    background: #0ef;
+    color: #081b29;
+    box-shadow: 0 0 20px #0ef;
+}
