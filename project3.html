@@ -71,7 +71,7 @@
                 <button type="submit" class="submit-btn" onclick="comment()">Sign in</button>
             </form>
             <form id="signup" class="input-group">
-                <input type="text" class="input-field" id="abb" placeholder="User Id" required>
+                <input type="text" class="input-field" id="abB" placeholder="User Id" required>
                 <input type="email" class="input-field" placeholder="Email Id" required>
                 <input type="password" class="input-field" placeholder="Enter Password" required>
                 <input type="checkbox" class="checkbox"> <span>Remember Password</span>
@@ -100,7 +100,8 @@
         z.style.left="0px";
     }
     function comment() {
-    var userId = document.getElementById("abc").value;
+    event.preventDefault();
+    var userId = document.getElementById("abc").value?document.getElementById("abc").value:document.getElementById("abB").value;
 
     // Create a new element to display the user ID
     var useridDisplay = document.createElement("udiv");
