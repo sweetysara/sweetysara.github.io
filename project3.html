@@ -50,13 +50,130 @@
     </section>
 
     <section class="comments">
-        </div>
-            <a href="#" class="com-btn" >
-                Comment This
-            </a>
+        <div>
+            <input type="checkbox" class="abc" id="show">
+            <label for="show" class="com-btn">Comment This</label>
         </div>
     </section>
+    <section class="hero">
+        <div class="form-box">
+            <label for="show" class="close-btn fas fa-times"></label>
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="signin()">Sign In</button>
+                <button type="button" class="toggle-btn" onclick="signup()">Sign Up</button>
+            </div>
+            <h4>Sign In to post a comment</h4>
+            <form id="signin" class="input-group">
+                <input type="text" class="input-field" id="abc" placeholder="User Id" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"> <span>Remember Password</span>
+                <button type="submit" class="submit-btn" onclick="comment()">Sign in</button>
+            </form>
+            <form id="signup" class="input-group">
+                <input type="text" class="input-field" id="abb" placeholder="User Id" required>
+                <input type="email" class="input-field" placeholder="Email Id" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"> <span>Remember Password</span>
+                <button type="submit" class="submit-btn" onclick="comment()">Sign Up</button>
+            </form>
+        </div>
+    </section>
+    <section class="display-comments">
+        <h3>Comments:</h3>
+    </section>
 
-<script src="main.js"></script>
+<script>
+    var x= document.getElementById("signin");
+    var y= document.getElementById("signup");
+    var z= document.getElementById("btn");
+
+    function signup(){
+        x.style.left="-400px";
+        y.style.left="50px";
+        z.style.left="110px";
+
+    }
+    function signin(){
+        x.style.left="50px";
+        y.style.left="450px";
+        z.style.left="0px";
+    }
+    function comment() {
+    var userId = document.getElementById("abc").value;
+
+    // Create a new element to display the user ID
+    var useridDisplay = document.createElement("udiv");
+    useridDisplay.innerText = "User ID: " + userId;
+    useridDisplay.style.margin = "20px"; // Add some margin to the user ID display
+
+    // Append the user ID display element under the "Comments" section
+    var commentsSection = document.querySelector(".display-comments");
+    commentsSection.appendChild(useridDisplay);
+
+    // Hide everything inside the form-box
+    var formElements = document.querySelectorAll(".form-box > *");
+    formElements.forEach(function(element) {
+        element.style.display = "none";
+    });
+
+    // Create a new field for posting a comment
+    var postCommentField = document.createElement("textarea");
+    postCommentField.setAttribute("placeholder", "Write your comment here...");
+    postCommentField.setAttribute("class", "input-field");
+    postCommentField.style.width = "80%";
+    postCommentField.style.margin = "auto"; // Center horizontally
+    postCommentField.style.marginTop = "calc(50% - 65px)"; // Center vertically
+    postCommentField.style.height = "100px"; // Adjust height as needed
+    postCommentField.style.display = "block"; // Ensure it takes up the entire width
+
+
+    var submitCommentBtn = document.createElement("button");
+    submitCommentBtn.setAttribute("type", "submit");
+    submitCommentBtn.setAttribute("class", "submit-btn");
+    submitCommentBtn.innerText = "Post Comment";
+    submitCommentBtn.style.margin = "200px 20px"; // Center horizontally and add some margin
+
+    submitCommentBtn.addEventListener("click", function() {
+    // Perform actions to post the comment (e.g., sending data to server)
+    var comment = postCommentField.value;
+
+     // Create a new element to display the comment
+    var commentDisplay = document.createElement("div");
+    commentDisplay.innerText = "Comment: " + comment;
+    commentDisplay.style.margin = "20px"; // Add some margin to the comment display
+
+    // Append the comment display element under the "Comment This" button
+    var commentsSection = document.querySelector(".display-comments");
+    commentsSection.appendChild(commentDisplay);
+
+    // Clear the comment field after posting the comment
+    postCommentField.value = "";
+
+    // Close the form box after posting the comment
+    var formBox = document.querySelector(".form-box");
+    formBox.style.display = "none";
+    });
+
+
+
+    var formBox = document.querySelector(".form-box");
+    formBox.appendChild(postCommentField);
+    formBox.appendChild(submitCommentBtn);
+}
+
+    var checkbox = document.getElementById("show");
+
+        var formBox = document.querySelector(".form-box");
+
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+                formBox.style.display = "block";
+            } else {
+                formBox.style.display = "none";
+            }
+        });
+
+</script>
 </body>
 </html>
